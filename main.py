@@ -1,4 +1,4 @@
-from playwright.sync_api import sync_playwright
+_from playwright.sync_api import sync_playwright
 import os
 import random
 import time
@@ -38,6 +38,12 @@ with sync_playwright() as p:
 
     time.sleep(5)
 
-    print("执行完成")
+print("当前页面：", page.url)
 
+print("页面内容：")
+print(page.content())
+
+page.screenshot(path="result.png")
+
+print("执行完成")
     browser.close()
