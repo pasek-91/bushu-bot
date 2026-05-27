@@ -35,7 +35,7 @@ with sync_playwright() as p:
     page.locator("button").last.click()
 
     # 等待结果
-    page.wait_for_timeout(30000)
+    page.wait_for_timeout(1000)
 
     # 保存截图
     page.screenshot(path="result.png")
