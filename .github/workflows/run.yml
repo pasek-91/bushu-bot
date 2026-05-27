@@ -29,3 +29,9 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
         run: python main.py
+
+      - name: 上传截图
+        uses: actions/upload-artifact@v4
+        with:
+          name: result
+          path: result.png
