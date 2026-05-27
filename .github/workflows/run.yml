@@ -16,10 +16,13 @@ jobs:
 
       - name: 安装 Python
         uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
       - name: 安装依赖
         run: |
           pip install -r requirements.txt
+          playwright install chromium
 
       - name: 运行脚本
         env:
@@ -31,4 +34,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: result
-          path: result.png
+          path
