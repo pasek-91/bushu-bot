@@ -5,7 +5,7 @@ import random
 USERNAME = os.getenv("USERNAME")
 PASSWORD = os.getenv("PASSWORD")
 
-# 1. 生成 8000 到 12000 之间的随机步数
+# 生成 8000 到 12000 之间的随机步数
 random_steps = random.randint(8000, 12000)
 print(f"本次运行生成的随机步数为: {random_steps}")
 
@@ -26,12 +26,13 @@ with sync_playwright() as p:
     # 输入密码
     page.locator('input[type="password"]').fill(PASSWORD)
 
-    # 2. 输入随机步数（将数字转为字符串）
+    # 输入随机步数
     step_input = page.locator('input[type="number"]')
     step_input.fill(str(random_steps))
 
-    # 3. 填完步数后直接回车提交，彻底解决按钮找不准或点击没反应的问题
-    step_input.press("Enter")
+    # 核心修改：明确告诉 Playwright 点击页面上最后一个 button
+    # 这样就能避开输入框旁边的小箭头或眼睛图标，直接点中底部的绿色提交按钮
+    page.locator("button").last.click()
 
     # 等待结果
     page.wait_for_timeout(30000)
