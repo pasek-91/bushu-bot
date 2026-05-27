@@ -12,7 +12,7 @@ with sync_playwright() as p:
     page = browser.new_page()
 
     # 打开网站
-    page.goto("你的网站链接")
+    page.goto("http://8.140.250.130/bushu/")
 
     # 等待页面加载
     page.wait_for_timeout(3000)
