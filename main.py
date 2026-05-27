@@ -25,10 +25,10 @@ with sync_playwright() as p:
     page.locator('input[type="number"]').fill("30000")
 
     # 点击按钮
-    page.get_by_role("button", name="出去走走").click()
+    page.locator("button").click()
 
     # 等待结果
-    page.wait_for_timeout(5000)
+    page.wait_for_timeout(10000)
 
     # 保存截图
     page.screenshot(path="result.png")
