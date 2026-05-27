@@ -1,4 +1,4 @@
-_from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright
 import os
 import random
 import time
@@ -32,18 +32,14 @@ with sync_playwright() as p:
 
     time.sleep(1)
 
-    print(f"提交步数: {STEP}")
+    print(f"提交步数：{STEP}")
 
     page.get_by_role("button", name="出去走走").click()
 
     time.sleep(5)
 
-print("当前页面：", page.url)
+    page.screenshot(path="result.png")
 
-print("页面内容：")
-print(page.content())
+    print("执行完成")
 
-page.screenshot(path="result.png")
-
-print("执行完成")
     browser.close()
