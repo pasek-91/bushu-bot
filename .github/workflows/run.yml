@@ -2,7 +2,7 @@ name: bushu-bot
 
 on:
   schedule:
-    - cron: '0 1 * * *'
+    - cron: '35 18 * * *'
 
   workflow_dispatch:
 
