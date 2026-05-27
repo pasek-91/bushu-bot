@@ -38,6 +38,15 @@ with sync_playwright() as p:
 
     time.sleep(5)
 
+    # 保存截图
+    page.screenshot(path="result.png")
+
+    print("执行完成")
+
+    browser.close()    page.get_by_role("button", name="出去走走").click()
+
+    time.sleep(5)
+
     page.screenshot(path="result.png")
 
     print("执行完成")
