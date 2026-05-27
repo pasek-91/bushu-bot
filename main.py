@@ -13,7 +13,7 @@ with sync_playwright() as p:
     page.goto("http://8.140.250.130/bushu/")
 
     # 等待页面加载
-    page.wait_for_timeout(3000)
+    page.wait_for_timeout(20000)
 
     # 输入账号
     page.locator('input[type="text"]').fill(USERNAME)
@@ -22,13 +22,13 @@ with sync_playwright() as p:
     page.locator('input[type="password"]').fill(PASSWORD)
 
     # 输入步数
-    page.locator('input[type="number"]').fill("30000")
+    page.locator('input[type="number"]').fill("10000")
 
     # 点击按钮
     page.locator("button").click()
 
     # 等待结果
-    page.wait_for_timeout(10000)
+    page.wait_for_timeout(30000)
 
     # 保存截图
     page.screenshot(path="result.png")
